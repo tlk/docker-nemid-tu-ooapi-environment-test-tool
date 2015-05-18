@@ -1,8 +1,7 @@
 
-# How to run the OOAPI environment test tool with Docker
-This project documents how to get the NemID TU Example from
-http://www.nets.eu/dk-da/Service/kundeservice/nemid-tu/NemID-tjenesteudbyderpakken-okt-2014/Pages/default.aspx#tab3
-up and running using Docker and Tomcat on Mac OS X. Just ignore the boot2docker parts if you are not on Mac OS X.
+# OOAPI environment test tool with Docker
+This project documents how to get the OOAPI environment test tool
+up and running using Docker. Just ignore the boot2docker parts if you are not on Mac OS X.
 
 
 ### Install boot2docker
