@@ -15,11 +15,60 @@ eval "$(boot2docker shellinit)"
 
 ### Build the docker image
 ```
-docker build -t nemid-tu-ooapi-environment-test-tool .
+make build
 ```
 
 ### Run the docker container
 ```
-docker run -it nemid-tu-ooapi-environment-test-tool
+make run
 ```
 
+This will start the test application and ask for input.
+
+### Example
+
+```
+OOAPI environment tester
+---------------------------
+
+Set enviroment:
+
+1 = OCESI_DANID_ENV_DEVELOPMENT
+2 = OCESI_DANID_ENV_PROD
+3 = OCESI_DANID_ENV_SYSTEMTEST
+4 = OCESII_DANID_ENV_DEVELOPMENT
+5 = OCESII_DANID_ENV_DEVELOPMENTTEST
+6 = OCESII_DANID_ENV_EXTERNALTEST
+7 = OCESII_DANID_ENV_INTERNALTEST
+8 = OCESII_DANID_ENV_OPERATIONSTEST
+9 = OCESII_DANID_ENV_PREPROD
+10 = OCESII_DANID_ENV_PROD
+> 9
+
+
+Ping LDAP?
+---------------------------
+y/n[n]
+>
+
+
+Ping PID service?
+---------------------------
+y/n[n]
+>
+
+
+Ping OCSP service?
+---------------------------
+y/n[n]
+>
+
+
+Ping CRL service?
+---------------------------
+y/n[n]
+>
+
+
+---------------------------
+```
