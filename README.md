@@ -15,8 +15,6 @@ eval "$(boot2docker shellinit)"
 
 ### Build the docker image
 ```
-git clone git@github.com:tlk/docker-nemid-tu-ooapi-environment-test-tool.git
-cd docker-nemid-tu-ooapi-environment-test-tool
 docker build -t nemid-tu-ooapi-environment-test-tool .
 ```
 
