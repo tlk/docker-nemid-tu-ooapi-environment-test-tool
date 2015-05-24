@@ -84,14 +84,8 @@ y/n[n]
 
  Enter path to certificate
 
-> /app/resources/oces2_preproduction.pem
-Error calling OCSP with selected Environment
-java.lang.IllegalArgumentException: unknown object in factory
-  at org.bouncycastle.asn1.x509.AuthorityInformationAccess.getInstance(Unknown Source)
-  at org.openoces.ooapi.utils.X509CertificatePropertyExtrator.getOcspUrl(X509CertificatePropertyExtrator.java:177)
-  at org.openoces.serviceprovider.EnvironmentTester.findOcspUrlInCertificate(EnvironmentTester.java:189)
-  at org.openoces.serviceprovider.EnvironmentTester.pingOCSP(EnvironmentTester.java:173)
-  at org.openoces.serviceprovider.EnvironmentTester.main(EnvironmentTester.java:88)
+> /app/resources/0x530fd5c3.pem
+Success
 
 
 Ping CRL service?
@@ -102,7 +96,7 @@ y/n[n]
 
  Enter path to certificate
 
-> /app/resources/oces2_preproduction.pem
+> /app/resources/0x530fd5c3.pem
 Success
 
 
