@@ -126,12 +126,17 @@ ERROR - ConfigurationChecker.verifyRootCertificateFromLDAP(86) | ERROR: Could no
 
 #### How to build ooapi-with-new-preproductionCertificateOcesII.jar
 
-Get the current certificate from `make ldapsearch` (adjust it to match ldap.ca.dn.danid.OCESII_DANID_ENV_PREPROD9 from ooapi-properties) and paste it into
-`ooapi-source/src/main/java/org/openoces/ooapi/environment/RootCertificates.java`.
-Build a customized ooapi.jar with the docker-nemid-tu-example-customized.git
-project.
+The make ldapsearch target queries the LDAP directory for the same certificate as the ldap.ca.dn.danid.OCESII_DANID_ENV_PREPROD (see above) value defined in ooapi.properties.
 
-The current VIII CA root cert is also available from http://m.aia.systemtest8.trust2408.com/systemtest8-ca.cer in DER format. The CN+TRUST2408_SYSTEMTEST_VIII_CA,_O+TRUST2408,_C+DK property in ooapi.properties points to this file. The DER file can be converted to PEM format with openssl x509:
+Now, get the current certificate with `make ldapsearch` and paste the base64 data into
+ooapi-source/src/main/java/org/openoces/ooapi/environment/RootCertificates.java.
+Then build a customized ooapi.jar with the docker-nemid-tu-example-customized.git
+project, and place it in download/ooapi-with-new-preproductionCertificateOcesII.jar.
+
+
+#### Final note
+
+The current VIII CA root cert is also available from http://m.aia.systemtest8.trust2408.com/systemtest8-ca.cer in DER format. The CN+TRUST2408_SYSTEMTEST_VIII_CA,_O+TRUST2408,_C+DK property in ooapi.properties points to this URL. The DER file can be converted to PEM format with openssl x509:
 
 ```
 openssl x509 -inform DER -in systemtest8-ca.cer -outform PEM
