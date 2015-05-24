@@ -104,7 +104,7 @@ Success
 ```
 
 
-### LDAP ping test is broken in `ooapi-1.174.0.jar`
+### LDAP ping test is broken in ooapi-1.174.0.jar
 
 
 The pre production environment CN is configured in
