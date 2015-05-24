@@ -142,5 +142,4 @@ The current VIII CA root cert is also available from http://m.aia.systemtest8.tr
 openssl x509 -inform DER -in systemtest8-ca.cer -outform PEM
 ```
 
-
-
+This certificate must match the certificate that was fetched with make ldapsearch.
