@@ -108,7 +108,7 @@ Success
 
 
 The pre production environment CN is configured in
-`ooapi-source/src/main/resources/ooapi.properties`:
+ooapi-source/src/main/resources/ooapi.properties:
 
 ```
 ldap.ca.dn.danid.OCESII_DANID_ENV_PREPROD = cn=TRUST2408 Systemtest VIII CA,o=TRUST2408,c=DK
@@ -116,17 +116,26 @@ ldap.ca.dn.danid.OCESII_DANID_ENV_PREPROD = cn=TRUST2408 Systemtest VIII CA,o=TR
 
 The LDAP ping test fetches the corresponding certificate from the LDAP
 directory and compares it to a certificate hardcoded in
-`ooapi-source/src/main/java/org/openoces/ooapi/environment/RootCertificates.java`
-line 340 (preproductionCertificateOcesII). However, as the latter cert is outdated the test fails:
+ooapi-source/src/main/java/org/openoces/ooapi/environment/RootCertificates.java
+line 340 (preproductionCertificateOcesII). However, the test fails with an error because the hardcoded cert CN is different (CN=TRUST2408 Systemtest VII Primary CA):
 
 
 ```
 ERROR - ConfigurationChecker.verifyRootCertificateFromLDAP(86) | ERROR: Could not retrieve root certificate from LDAP for environment OCESII_DANID_ENV_PREPROD
 ```
 
-#### How to rebuild the ooapi.jar file with a current certificate
+#### How to build ooapi-with-new-preproductionCertificateOcesII.jar
 
-Get the current certificate from `make ldapsearch` and paste it into
+Get the current certificate from `make ldapsearch` (adjust it to match ldap.ca.dn.danid.OCESII_DANID_ENV_PREPROD9 from ooapi-properties) and paste it into
 `ooapi-source/src/main/java/org/openoces/ooapi/environment/RootCertificates.java`.
 Build a customized ooapi.jar with the docker-nemid-tu-example-customized.git
 project.
+
+The current VIII CA root cert is also available from http://m.aia.systemtest8.trust2408.com/systemtest8-ca.cer in DER format. The CN+TRUST2408_SYSTEMTEST_VIII_CA,_O+TRUST2408,_C+DK property in ooapi.properties points to this file. The DER file can be converted to PEM format with openssl x509:
+
+```
+openssl x509 -inform DER -in systemtest8-ca.cer -outform PEM
+```
+
+
+
